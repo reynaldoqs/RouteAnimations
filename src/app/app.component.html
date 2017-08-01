@@ -1,0 +1,9 @@
+<header>
+    <h1 class="title">Animated Routes</h1>
+    <a routerLink="first" routerLinkActive="active">First route</a>
+    <a routerLink="second" routerLinkActive="active">Second route</a>
+    <a routerLink="third" routerLinkActive="active">Third route</a>
+</header>
+<section [@routerAnimation]="routerState(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
+</section>
