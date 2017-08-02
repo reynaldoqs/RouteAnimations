@@ -3,7 +3,17 @@ import { trigger, transition, style, query, animate, group, animateChild } from 
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+  <header>
+      <h1 class="title">Animated Routes</h1>
+      <a routerLink="first" routerLinkActive="active">First route</a>
+      <a routerLink="second" routerLinkActive="active">Second route</a>
+      <a routerLink="third" routerLinkActive="active">Third route</a>
+  </header>
+  <section [@routerAnimation]="routerState(routerOutlet)">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
+  </section>`
+,
   styleUrls: ['./app.component.css'],
   animations: [
     trigger('routerAnimation', [
@@ -30,6 +40,5 @@ import { trigger, transition, style, query, animate, group, animateChild } from 
 export class AppComponent {
   routerState(outlet: any) {
     return outlet.activatedRouteData.state;
-
   }
 }

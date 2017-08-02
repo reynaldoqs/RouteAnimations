@@ -9,7 +9,7 @@ import { trigger, query, transition, group,
       <h2>{{monster.name}}'s friends</h2>
       <ul class="friends">
         <li class="friend" *ngFor="let friend of monster.friends">
-          <img class="friend-icon" src="http://api.adorable.io/avatar/90/{{friend.id}}">
+          <img class="friend-icon" src="https://api.adorable.io/avatar/90/{{friend.id}}">
           <span class="friend-name">{{friend.name}}</span>
         </li>
       </ul>

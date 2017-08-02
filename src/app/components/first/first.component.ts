@@ -8,7 +8,7 @@ import { trigger, query, transition,
   template: `
     <header>
       <div class="avatar-container">
-        <img src="http://api.adorable.io/avatar/190/{{monster.id}}">
+        <img src="https://api.adorable.io/avatar/190/{{monster.id}}">
       </div>
     </header>
     <section>
@@ -83,7 +83,7 @@ export class FirstComponent {
     id: 'audi',
     friends: [{name: 'Zugar', id: 'sug01'},
     {name: 'Meal', id: 'Me01'},
-    {name: 'Aman', id: 'Am01'}]
+    {name: 'Aman', id: 'Am91'}]
   };
   @HostBinding('@firstPageAnimation')
   public animateProfile = true;
