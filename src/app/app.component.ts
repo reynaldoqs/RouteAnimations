@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { trigger, transition, style, query, animate, group, animateChild } from '@angular/animations';
+import { trigger, transition, style, query, animate, group, animateChild, sequence } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -20,19 +20,19 @@ import { trigger, transition, style, query, animate, group, animateChild } from 
     transition('* => *', [
       query(':enter, :leave', style({position: 'fixed', width: '100%', height: '100vh', maxHeight: '100%',
                                     transformStyle: 'preserve-3d', backfaceVisibility: 'hidden'}), {optional: true}),
-        group([
-          query(':leave', [
-            animate('.6s ease-in-out', style({transform: 'rotateY(-180deg) translateY(20%)'})),
-          ], {optional: true}),
+      sequence([
+          group([
+            query(':leave', [
+              animate('.6s ease-in-out', style({transform: 'rotateY(-180deg) translateY(20%)'})),
+            ], {optional: true}),
 
-          query(':enter', [
-            style({transform: 'rotateY(180deg)  translateY(20%)'}),
-            animate('.6s ease-in-out', style('*')),
-          ], {optional: true})
-        ]),
-        query('@firstPageAnimation', animateChild(), {optional: true}),
-        query('@secondPageAnimation', animateChild(), {optional: true}),
-        query('@thirdPageAnimation', animateChild(), {optional: true})
+            query(':enter', [
+              style({transform: 'rotateY(180deg)  translateY(20%)'}),
+              animate('.6s ease-in-out', style('*')),
+            ], {optional: true})
+          ]),
+          query(':enter', animateChild(), {optional: true})
+        ])
       ])
     ])
   ]
